@@ -1,0 +1,6 @@
+<div class="row">
+    <div class="input-field col s12">
+        <input id="stream_url" *ngIf="(user | async)?.uid" type="text" class="validate" placeholder="Give me a stream link" (keyup.enter)="SendStreamLink($event.target.value)" [(ngModel)]="streamUrl">
+        <label class="active" for="stream_url">Give me a stream link</label>
+    </div>
+</div>

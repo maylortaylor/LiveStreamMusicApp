@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from "rxjs/Observable";
+import { UserService } from './user-service.service';
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -10,31 +11,22 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user: Observable<firebase.User>;
-  streams: FirebaseListObservable<any[]>;
-  streamUrl: string = '';
 
   constructor(
       public afAuth: AngularFireAuth,
-      public af: AngularFireDatabase
+      public af: AngularFireDatabase,
+      public userService: UserService
     )  {
-
-
-
-    this.user = this.afAuth.authState;
     
   }
-  title = 'Live Steam Music App';
 
   login() {
-    this.afAuth.auth.signInAnonymously();
+    this.userService.login();
   }
   logout() {
-    this.afAuth.auth.signOut();
+    this.userService.logout();
   }
-
-  SendStreamLink(val: string) {
-    this.streams.push({streamUrl: val});
-    this.streamUrl = '';
+  isAuthenticated() {
+    this.userService.isAuthenticated();
   }
 }
