@@ -12,17 +12,15 @@ import * as firebase from 'firebase/app';
 export class AppComponent {
   user: Observable<firebase.User>;
   streams: FirebaseListObservable<any[]>;
-  msgVal: string = '';
+  streamUrl: string = '';
 
   constructor(
       public afAuth: AngularFireAuth,
       public af: AngularFireDatabase
     )  {
-    this.streams = af.list('/streams', {
-      query:{
-        limitToFirst: 25
-      }
-    })
+
+
+
     this.user = this.afAuth.authState;
     
   }
@@ -35,8 +33,8 @@ export class AppComponent {
     this.afAuth.auth.signOut();
   }
 
-  SendStreamLink(desc: string) {
-    this.streams.push({streamUrl: desc});
-    this.msgVal = '';
+  SendStreamLink(val: string) {
+    this.streams.push({streamUrl: val});
+    this.streamUrl = '';
   }
 }

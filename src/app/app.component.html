@@ -1,8 +1,10 @@
+<h1>{{title}}</h1>
+
 <div class="row columns">
     <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
     <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
 
-    <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="Give me a stream link" (keyup.enter)="SendStreamLink($event.target.value)" [(ngModel)]="msgVal" />
+    <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="Give me a stream link" (keyup.enter)="SendStreamLink($event.target.value)" [(ngModel)]="streamUrl" />
 
     <app-platform-streams-component></app-platform-streams-component>
 </div>

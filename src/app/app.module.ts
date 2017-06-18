@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { PlatformStreamsComponentComponent } from './platform-streams-component/platform-streams-component.component';
 
+import { PlatformStreamsService } from './platform-streams.service';
 export const firebaseConfig = {
   apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
   authDomain: "livestreammusicapp.firebaseapp.com",
@@ -35,7 +36,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [PlatformStreamsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
