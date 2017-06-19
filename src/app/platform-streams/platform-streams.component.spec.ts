@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlatformStreamsComponentComponent } from './platform-streams-component.component';
+import { PlatformStreamsComponent } from './platform-streams.component';
 
 describe('PlatformStreamsComponentComponent', () => {
-  let component: PlatformStreamsComponentComponent;
-  let fixture: ComponentFixture<PlatformStreamsComponentComponent>;
+  let component: PlatformStreamsComponent;
+  let fixture: ComponentFixture<PlatformStreamsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlatformStreamsComponentComponent ]
+      declarations: [ PlatformStreamsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlatformStreamsComponentComponent);
+    fixture = TestBed.createComponent(PlatformStreamsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
