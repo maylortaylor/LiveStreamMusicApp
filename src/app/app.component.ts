@@ -15,18 +15,10 @@ export class AppComponent {
   constructor(
       public afAuth: AngularFireAuth,
       public af: AngularFireDatabase,
-      public userService: UserService
+      private userService: UserService
     )  {
     
   }
 
-  login() {
-    this.userService.login();
-  }
-  logout() {
-    this.userService.logout();
-  }
-  isAuthenticated() {
-    this.userService.isAuthenticated();
-  }
+
 }

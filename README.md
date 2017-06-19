@@ -3,9 +3,20 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
 
+## Backend Management
+https://console.developers.google.com/apis/credentials?project=livestreammusicapp-171123
+https://console.firebase.google.com/u/2/project/livestreammusicapp/database/data
+
+https://developers.google.com/youtube/v3/docs/
+
 ## UI
 uses [Materialize-Css] 
 (http://materializecss.com/cards.html)
+
+http://materializecss.com/forms.html
+
+https://material.io/icons/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

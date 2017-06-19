@@ -10,12 +10,12 @@ import { AngularFireModule } from 'angularfire2';
 // New imports to update based on AngularFire2 version 4
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { PlatformStreamsComponentComponent } from './platform-streams-component/platform-streams-component.component';
+import { PlatformStreamsComponent } from './platform-streams/platform-streams.component';
 
 import { PlatformStreamsService } from './platform-streams.service';
 import { UserService } from './user-service.service';
 
-import { AddStreamComponentComponent } from './add-stream-component/add-stream-component.component';
+import { AddStreamComponent } from './add-stream/add-stream.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 export const firebaseConfig = {
   apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
@@ -29,8 +29,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    PlatformStreamsComponentComponent,
-    AddStreamComponentComponent,
+    PlatformStreamsComponent,
+    AddStreamComponent,
     NavBarComponent
   ],
   imports: [

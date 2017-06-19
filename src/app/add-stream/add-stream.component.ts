@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from './../app.component';
 import { UserService } from './../user-service.service';
+import { PlatformStreamsService } from './../platform-streams.service';
 
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -8,11 +9,11 @@ import * as firebase from 'firebase/app';
 
 
 @Component({
-  selector: 'app-add-stream-component',
-  templateUrl: './add-stream-component.component.html',
-  styleUrls: ['./add-stream-component.component.css']
+  selector: 'app-add-stream',
+  templateUrl: './add-stream.component.html',
+  styleUrls: ['./add-stream.component.css']
 })
-export class AddStreamComponentComponent implements OnInit {
+export class AddStreamComponent implements OnInit {
   app: AppComponent;
   user: Observable<firebase.User>;
 
@@ -21,14 +22,15 @@ export class AddStreamComponentComponent implements OnInit {
 
   constructor(
       public af: AngularFireDatabase,
-      private userService: UserService
+      private userService: UserService,
+      private streamData: PlatformStreamsService
   ) {
-    this.user = this.userService.getCurrentUser();
    }
 
   ngOnInit() {
+    this.user = this.userService.getCurrentUser();
+    this.streams = this.streamData.getListOfPlatformStreams();
   }
-
 
   public SendStreamLink(streamUrl: string) {
     //check link with url regex

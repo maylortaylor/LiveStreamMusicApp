@@ -1,10 +1,10 @@
 <app-nav-bar></app-nav-bar>
 
 <div class=" ">
-    <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-    <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
 
-    <app-add-stream-component></app-add-stream-component>
 
-    <app-platform-streams-component></app-platform-streams-component>
+
+    <app-add-stream></app-add-stream>
+
+    <app-platform-streams></app-platform-streams>
 </div>
