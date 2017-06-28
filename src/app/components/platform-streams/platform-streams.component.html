@@ -1,14 +1,14 @@
 <div class="mdl-grid">
-    <div *ngFor="let stream of streams | async" class="demo-card-square mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title mdl-card--expand">
-            <h2 class="mdl-card__title-text">{{stream.title}}</h2>
+    <div *ngFor="let stream of streams | async" class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Title {{stream.title}}</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            {{stream.title}}
+            Stream Name
         </div>
         <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                {{stream.streamUrl}}
+            <a href="{{stream.streamUrl}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Go Listen
             </a>
         </div>
     </div>
