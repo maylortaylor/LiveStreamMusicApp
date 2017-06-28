@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from './../app.component';
-import { UserService } from './../user-service.service';
-import { PlatformStreamsService } from './../platform-streams.service';
+import { AppComponent } from '../../app.component';
+import { UserService } from '../../core/services/user-service.service';
+import { PlatformStreamsService } from '../../core/services/platform-streams.service';
 
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -40,6 +40,10 @@ export class AddStreamComponent implements OnInit {
       console.log('ERROR: invalid url', streamUrl);
     }
   }
+
+
+
+  
   private AddStreamLink(streamUrl: string) {
     this.streams.push({streamUrl: streamUrl});
     this.streamUrl = '';

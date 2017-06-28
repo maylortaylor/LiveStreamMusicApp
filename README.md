@@ -9,6 +9,8 @@ https://console.firebase.google.com/u/2/project/livestreammusicapp/database/data
 
 https://developers.google.com/youtube/v3/docs/
 
+https://medium.freecodecamp.com/angular-2-authentication-made-easy-with-firebase-246c282d9ef8
+
 ## UI
 uses [Materialize-Css] 
 (http://materializecss.com/cards.html)

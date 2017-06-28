@@ -10,13 +10,13 @@ import { AngularFireModule } from 'angularfire2';
 // New imports to update based on AngularFire2 version 4
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { PlatformStreamsComponent } from './platform-streams/platform-streams.component';
+import { PlatformStreamsComponent } from '../app/components/platform-streams/platform-streams.component';
 
-import { PlatformStreamsService } from './platform-streams.service';
-import { UserService } from './user-service.service';
+import { PlatformStreamsService } from '../app/core/services/platform-streams.service';
+import { UserService } from '../app/core/services/user-service.service';
 
-import { AddStreamComponent } from './add-stream/add-stream.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AddStreamComponent } from '../app/components/add-stream/add-stream.component';
+import { NavBarComponent } from '../app/components/nav-bar/nav-bar.component';
 export const firebaseConfig = {
   apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
   authDomain: "livestreammusicapp.firebaseapp.com",
@@ -25,6 +25,7 @@ export const firebaseConfig = {
   storageBucket: "livestreammusicapp.appspot.com",
   messagingSenderId: "852655274432"
 };
+
 
 @NgModule({
   declarations: [
@@ -46,6 +47,8 @@ export const firebaseConfig = {
     PlatformStreamsService,
     UserService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

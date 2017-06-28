@@ -18,10 +18,13 @@ export class UserService {
   isAuthenticated() {
     return (!!this.afAuth.auth.currentUser.uid ? true : false);
   }
-  login() {
+  signInAnonymously() {
     this.afAuth.auth.signInAnonymously();
   }
-  logout() {
+  signInPopup() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+  signOut() {
     this.afAuth.auth.signOut();
   }
   getCurrentUser() {

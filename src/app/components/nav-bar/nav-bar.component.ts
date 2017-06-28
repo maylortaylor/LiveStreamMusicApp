@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs/Observable";
-import { UserService } from './../user-service.service';
+import { UserService } from '../../core/services/user-service.service';
 
 import * as firebase from 'firebase/app';
 
@@ -22,12 +22,14 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
   }
-
-  login() {
-    this.userService.login();
+  signInPopup() {
+    this.userService.signInPopup();
   }
-  logout() {
-    this.userService.logout();
+  signInAnonymously() {
+    this.userService.signInAnonymously();
+  }
+  signOut() {
+    this.userService.signOut();
   }
   isAuthenticated() {
     this.userService.isAuthenticated();
