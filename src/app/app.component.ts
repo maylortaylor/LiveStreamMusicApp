@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from "rxjs/Observable";
-import { UserService } from '../app/core/services/user-service.service';
+import { UserService } from '../app/core/auth/user-service.service';
 import * as firebase from 'firebase/app';
 
 @Component({

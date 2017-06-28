@@ -13,7 +13,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { PlatformStreamsComponent } from '../app/components/platform-streams/platform-streams.component';
 
 import { PlatformStreamsService } from '../app/core/services/platform-streams.service';
-import { UserService } from '../app/core/services/user-service.service';
+import { UserService } from '../app/core/auth/user-service.service';
 
 import { AddStreamComponent } from '../app/components/add-stream/add-stream.component';
 import { NavBarComponent } from '../app/components/nav-bar/nav-bar.component';

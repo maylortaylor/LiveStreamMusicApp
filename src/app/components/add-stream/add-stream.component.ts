@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
-import { UserService } from '../../core/services/user-service.service';
+import { UserService } from '../../core/auth/user-service.service';
 import { PlatformStreamsService } from '../../core/services/platform-streams.service';
 
 import { Observable } from "rxjs/Observable";
