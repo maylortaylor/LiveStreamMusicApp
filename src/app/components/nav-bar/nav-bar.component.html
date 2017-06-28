@@ -1,10 +1,27 @@
-<nav>
-    <div class="nav-wrapper">
-        <a href="" class="brand-logo">{{title}}</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a (click)="signInPopup()" *ngIf="!(user | async)?.uid">Login</a></li>
-            <li><a (click)="signInAnonymously()" *ngIf="!(user | async)?.uid">Anonymous Login</a></li>
-            <li><a (click)="signOut()" *ngIf="(user | async)?.uid">Logout</a></li>
-        </ul>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">{{title}}</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a (click)="signInPopup()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Login</a>
+                <a (click)="signInAnonymously()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Anonymous Login</a>
+                <a (click)="signOut()" *ngIf="(user | async)?.uid" class="mdl-navigation__link">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">{{title}}</span>
+        <nav class="mdl-navigation">
+            <a (click)="signInPopup()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Login</a>
+            <a (click)="signInAnonymously()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Anonymous Login</a>
+            <a (click)="signOut()" *ngIf="(user | async)?.uid" class="mdl-navigation__link">Logout</a>
+        </nav>
     </div>
-</nav>
+
+</div>

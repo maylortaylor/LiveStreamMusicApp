@@ -1,11 +1,16 @@
-<div class="row">
-    <div class="col s12 m6" *ngFor="let stream of streams | async">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">{{stream.title}}</span> {{stream.streamUrl}} </div>
-            <div class="card-action">
-                <a href="{{stream.streamUrl}}" target="_blank"><i class="material-icons">music_video</i> Go to stream</a>
-            </div>
+<div class="mdl-grid">
+    <div *ngFor="let stream of streams | async" class="demo-card-square mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">{{stream.title}}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            {{stream.title}}
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                {{stream.streamUrl}}
+            </a>
         </div>
     </div>
 </div>
+
