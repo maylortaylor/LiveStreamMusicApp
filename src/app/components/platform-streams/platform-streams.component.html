@@ -1,4 +1,4 @@
-<div class="mdl-grid">
+<!--<div class="mdl-grid">
     <div *ngFor="let stream of streams | async" class="mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">Title {{stream.title}}</h2>
@@ -10,6 +10,43 @@
             <a href="{{stream.streamUrl}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                 Go Listen
             </a>
+        </div>
+    </div>
+</div>-->
+
+<!--<div class="mdl-grid">
+    <div *ngFor="let creator of ytCreators " class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{creator.title}}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            {{creator.description}}
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a href="https://www.youtube.com/watch?v={{stream.videoId}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Go Listen
+            </a>
+        </div>
+    </div>
+</div>-->
+
+<div class="mdl-grid">
+    <div *ngFor="let creator of ytCreators" class="platform-stream mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+        <div class="mdl-card__title mdl-card--expand" [style.background-image]="creator.thumbnail">
+            <h2 class="mdl-card__title-text">{{creator.title}}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+        {{creator.description}}
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a href="https://www.youtube.com/watch?v={{creator.videoId}}" target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Go Listen
+            </a>
+        </div>
+        <div class="mdl-card__menu">
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">share</i>
+            </button>
         </div>
     </div>
 </div>

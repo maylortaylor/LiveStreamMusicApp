@@ -9,6 +9,7 @@ import { PlatformStreamsService } from '../../core/services/platform-streams.ser
 })
 export class PlatformStreamsComponent implements OnInit {
   streams: FirebaseListObservable<any[]>;
+  ytCreators: any;
 
   constructor(
       public af: AngularFireDatabase,
@@ -19,7 +20,8 @@ export class PlatformStreamsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.streams = this.streamData.getListOfPlatformStreams();
+    // this.streams = this.streamData.getListOfPlatformStreams();
+    this.ytCreators = this.streamData.getStandardStreams();
   }
 
 }
