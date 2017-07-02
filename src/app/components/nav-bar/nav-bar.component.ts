@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { UserService } from '../../core/auth/user.service';
+import { UserModel } from '../../core/models/user.model';
 
 import * as firebase from 'firebase/app';
 
@@ -10,17 +11,18 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  user: Observable<firebase.User>;
+  user: UserModel
+
   title:string  = 'Live Steam Music App';
 
   constructor(
     private userService: UserService
-  ) { 
-
-  }
+  ) {  }
 
   ngOnInit() {
-    this.user = this.userService.getCurrentUser();
+  }
+  ngAfterViewChecked() {
+   this.user = this.userService.getCurrentUser();
   }
   signInPopup() {
     this.userService.signInPopup();

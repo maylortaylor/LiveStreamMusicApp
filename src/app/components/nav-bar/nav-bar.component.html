@@ -8,9 +8,9 @@
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a (click)="signInPopup()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Login</a>
-                <a (click)="signInAnonymously()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Anonymous Login</a>
-                <a (click)="signOut()" *ngIf="(user | async)?.uid" class="mdl-navigation__link">Logout</a>
+                <a (click)="signInPopup()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Login</a>
+                <a (click)="signInAnonymously()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Anonymous Login</a>
+                <a (click)="signOut()" *ngIf="(user)?.uid" class="mdl-navigation__link">Logout</a>
             </nav>
         </div>
     </header>
@@ -18,9 +18,9 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">{{title}}</span>
         <nav class="mdl-navigation">
-            <a (click)="signInPopup()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Login</a>
-            <a (click)="signInAnonymously()" *ngIf="!(user | async)?.uid" class="mdl-navigation__link">Anonymous Login</a>
-            <a (click)="signOut()" *ngIf="(user | async)?.uid" class="mdl-navigation__link">Logout</a>
+            <a (click)="signInPopup()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Login</a>
+            <a (click)="signInAnonymously()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Anonymous Login</a>
+            <a (click)="signOut()" *ngIf="(user)?.uid" class="mdl-navigation__link">Logout</a>
         </nav>
     </div>
 

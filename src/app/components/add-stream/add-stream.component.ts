@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
+import { EmitterService } from '../../emitter.service';
 import { UserService } from '../../core/auth/user.service';
 import { PlatformStreamsService } from '../../core/services/platform-streams.service';
+import { UserModel } from '../../core/models/user.model';
+import { YoutubeApiService } from '../../core/services/youtube/youtube-api.service';
+
 
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -15,7 +19,7 @@ import * as firebase from 'firebase/app';
 })
 export class AddStreamComponent implements OnInit {
   app: AppComponent;
-  user: Observable<firebase.User>;
+  user: UserModel
 
   streams: FirebaseListObservable<any[]>;
   streamUrl: string = '';
@@ -23,27 +27,34 @@ export class AddStreamComponent implements OnInit {
   constructor(
       public af: AngularFireDatabase,
       private userService: UserService,
-      private streamData: PlatformStreamsService
+      private streamData: PlatformStreamsService,
+      private ytApi: YoutubeApiService
   ) {
    }
 
   ngOnInit() {
-    this.user = this.userService.getCurrentUser();
     this.streams = this.streamData.getListOfPlatformStreams();
+  }
+  ngAfterViewChecked() {
+   this.user = this.userService.getCurrentUser();
   }
 
   public SendStreamLink(streamUrl: string) {
+    this.ytApi.getYoutubeCreatorInfo('UCjhXxThStadXnlXFc_Yj55w')
+      .subscribe(res => {
+        console.log(res);
+        
+      })
     //check link with url regex
-    if (this.isAValidUrl(streamUrl)) {
-      this.AddStreamLink(streamUrl);
-    } else {
-      console.log('ERROR: invalid url', streamUrl);
-    }
+    // if (this.isAValidUrl(streamUrl)) {
+    //   this.AddStreamLink(streamUrl);
+    // } else {
+    //   console.log('ERROR: invalid url', streamUrl);
+    // }
   }
 
 
 
-  
   private AddStreamLink(streamUrl: string) {
     this.streams.push({streamUrl: streamUrl});
     this.streamUrl = '';

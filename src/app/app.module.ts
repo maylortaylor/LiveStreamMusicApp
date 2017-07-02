@@ -1,29 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
+// import { FormsModule } from '@angular/forms';
+// import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
-
-// New imports to update based on AngularFire2 version 4
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { AuthModule } from './core/auth/auth.module';
+import { DashboardModule } from './components/dashboard/dashboard.module';
+import { AppRouting } from './app.routes';
+
+import { AddStreamComponent } from '../app/components/add-stream/add-stream.component';
+import { NavBarComponent } from '../app/components/nav-bar/nav-bar.component';
 import { PlatformStreamsComponent } from '../app/components/platform-streams/platform-streams.component';
 
 import { PlatformStreamsService } from '../app/core/services/platform-streams.service';
 import { UserService } from '../app/core/auth/user.service';
+import { YoutubeApiService } from '../app/core/services/youtube/youtube-api.service';
 
-import { AddStreamComponent } from '../app/components/add-stream/add-stream.component';
-import { NavBarComponent } from '../app/components/nav-bar/nav-bar.component';
 export const firebaseConfig = {
-  apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
-  authDomain: "livestreammusicapp.firebaseapp.com",
-  databaseURL: "https://livestreammusicapp.firebaseio.com",
-  projectId: "livestreammusicapp",
-  storageBucket: "livestreammusicapp.appspot.com",
-  messagingSenderId: "852655274432"
+  apiKey: "AIzaSyAnCcvrnRyGB_8QGbrX1e1dzw1fsGh9Qp8",
+  authDomain: "musiccuratorapp-93654.firebaseapp.com",
+  databaseURL: "https://musiccuratorapp-93654.firebaseio.com",
+  projectId: "musiccuratorapp-93654",
+  storageBucket: "musiccuratorapp-93654.appspot.com",
+  messagingSenderId: "334859564645"
 };
 
 
@@ -35,17 +40,20 @@ export const firebaseConfig = {
     NavBarComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    JsonpModule,
+    AppRouting,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AuthModule,
+    BrowserModule,
+    CommonModule,
+    DashboardModule,
+    HttpModule
   ],
   providers: [
     PlatformStreamsService,
-    UserService
+    UserService,
+    YoutubeApiService
   ],
   bootstrap: [
     AppComponent

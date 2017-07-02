@@ -14,10 +14,7 @@ export class PlatformStreamsComponent implements OnInit {
   constructor(
       public af: AngularFireDatabase,
       private streamData: PlatformStreamsService
-    ) { 
-
-
-  }
+    ) {  }
 
   ngOnInit() {
     // this.streams = this.streamData.getListOfPlatformStreams();
