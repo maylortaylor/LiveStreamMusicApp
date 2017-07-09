@@ -23,12 +23,12 @@ import { UserService } from '../app/core/auth/user.service';
 import { YoutubeApiService } from '../app/core/services/youtube/youtube-api.service';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAnCcvrnRyGB_8QGbrX1e1dzw1fsGh9Qp8",
-  authDomain: "musiccuratorapp-93654.firebaseapp.com",
-  databaseURL: "https://musiccuratorapp-93654.firebaseio.com",
-  projectId: "musiccuratorapp-93654",
-  storageBucket: "musiccuratorapp-93654.appspot.com",
-  messagingSenderId: "334859564645"
+    apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
+    authDomain: "livestreammusicapp.firebaseapp.com",
+    databaseURL: "https://livestreammusicapp.firebaseio.com",
+    projectId: "livestreammusicapp",
+    storageBucket: "livestreammusicapp.appspot.com",
+    messagingSenderId: "852655274432"
 };
 
 

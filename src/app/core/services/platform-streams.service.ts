@@ -10,7 +10,7 @@ export class PlatformStreamsService {
     public af: AngularFireDatabase,
     private _sanitizer: DomSanitizer) {
 
-      this.streams = af.list('/streams', {
+      this.streams = af.list('/platform-channels', {
         query:{
           limitToFirst: 25
         }
@@ -18,6 +18,10 @@ export class PlatformStreamsService {
    }
 
    getListOfPlatformStreams() {
+      this.streams.subscribe(items => {
+        console.log(items);
+        
+      })     
       return this.streams;
    }
 

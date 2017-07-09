@@ -1,28 +1,3 @@
-<!--<div class="mdl-layout--fixed-header">
-
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">{{title}}</span>
-            <div class="mdl-layout-spacer"></div>
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a (click)="signInPopup()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Login</a>
-                <a (click)="signInAnonymously()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Anonymous Login</a>
-                <a (click)="signOut()" *ngIf="(user)?.uid" class="mdl-navigation__link">Logout</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">{{title}}</span>
-        <nav class="mdl-navigation">
-            <a (click)="signInPopup()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Login</a>
-            <a (click)="signInAnonymously()" *ngIf="!(user)?.uid" class="mdl-navigation__link">Anonymous Login</a>
-            <a (click)="signOut()" *ngIf="(user)?.uid" class="mdl-navigation__link">Logout</a>
-        </nav>
-    </div>
-
-</div>-->
-
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
     
     <header class="mdl-layout__header">

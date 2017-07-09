@@ -1,13 +1,11 @@
 /* Desktops and laptops ----------- */
-@media only screen and (max-width : 1824px) {
-
+@media (max-width : 1824px) {
 }
-
 /* iPads (landscape) ----------- */
-@media only screen and (max-width : 1224px) {
+@media (max-width : 1224px) {
 }
 /* iPads (portrait) ----------- */
-@media only screen and (max-width : 1024px) {
+@media (max-width : 1024px) {
 }
 /* Smartphones (landscape) ----------- */
 @media (max-width : 768px) {
