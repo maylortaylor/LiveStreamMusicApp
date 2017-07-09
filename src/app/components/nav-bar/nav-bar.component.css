@@ -1,0 +1,27 @@
+/* Desktops and laptops ----------- */
+@media only screen and (max-width : 1824px) {
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (max-width : 1224px) {
+}
+/* iPads (portrait) ----------- */
+@media only screen and (max-width : 1024px) {
+}
+/* Smartphones (landscape) ----------- */
+@media (max-width : 768px) {
+    .hide-small { display: block; }
+}
+/* Big smartphones (portrait) (ie: Galaxy 3 has 360)*/
+@media (max-width : 640px) {
+    .hide-small { display: block; }
+}
+/* Smartphones (portrait) (ie: Galaxy 1) */
+@media (max-width : 321px) {
+    .hide-small { display: block; }
+}
+
+.app-link {
+    text-decoration: none;
+}
