@@ -21,6 +21,7 @@ import { PlatformStreamsComponent } from '../app/components/platform-streams/pla
 import { PlatformStreamsService } from '../app/core/services/platform-streams.service';
 import { UserService } from '../app/core/auth/user.service';
 import { YoutubeApiService } from '../app/core/services/youtube/youtube-api.service';
+import { HelpfulService } from './core/services/helpful/helpful.service'
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
@@ -53,7 +54,8 @@ export const firebaseConfig = {
   providers: [
     PlatformStreamsService,
     UserService,
-    YoutubeApiService
+    YoutubeApiService,
+    HelpfulService
   ],
   bootstrap: [
     AppComponent
