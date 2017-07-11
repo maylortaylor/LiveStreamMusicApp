@@ -33,7 +33,7 @@ export class AddStreamComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.streams = this.streamData.getListOfPlatformStreams();
+    // this.streams = this.streamData.getListOfPlatformStreams();
   }
   ngAfterViewChecked() {
    this.user = this.userService.getCurrentUser();

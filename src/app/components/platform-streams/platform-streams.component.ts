@@ -16,16 +16,20 @@ export class PlatformStreamsComponent implements OnInit {
       private streamData: PlatformStreamsService
     ) {  }
 
-  ngOnInit() {
-    this.platformChannels = this.streamData.getListOfPlatformStreams();
-    this.cleanCreators(this.platformChannels);
-    // this.platformChannels = this.streamData.getStandardStreams();
+  async ngOnInit() {
+    this.platformChannels = await this.streamData.getListOfPlatformStreams()
+      .then((data) => {
+        data.subscribe(items => {
+          console.log(items);
+          this.platformChannels = items;
+          this.cleanCreators(this.platformChannels);
+        });
+      });
   }
 
   cleanCreators(platformChannels: any){
     for (var i = 0; i < platformChannels.length; i++) {
-      var channel = platformChannels[i];
-      channel.description = this.truncate(channel.description, 25, null);
+      platformChannels[i].description = this.truncate(platformChannels[i].description, 280, null);
     }
   }
 

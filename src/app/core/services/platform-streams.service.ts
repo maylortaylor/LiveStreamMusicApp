@@ -5,24 +5,22 @@ import { YoutubeCreator } from './models/YoutubeCreator'
 @Injectable()
 export class PlatformStreamsService {
   streams: FirebaseListObservable<any[]>;
+  channels: any;
 
   constructor(
     public af: AngularFireDatabase,
     private _sanitizer: DomSanitizer) {
 
-      this.streams = af.list('/platform-channels', {
+
+   }
+
+  async getListOfPlatformStreams() {
+      var channels = this.af.list('/platform-channels', {
         query:{
           limitToFirst: 25
         }
       });
-   }
-
-   getListOfPlatformStreams() {
-      this.streams.subscribe(items => {
-        console.log(items);
-        
-      })     
-      return this.streams;
+      return channels;
    }
 
    getStandardStreams() {
