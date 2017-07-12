@@ -1,7 +1,23 @@
-.platform-stream.mdl-card{
+.platform-stream.mdl-card {
     width: 320px;
     height: 320px;
 }
-.mdl-card__title{
+
+.mdl-card__title-text {
+    min-height: 10%;
+}
+
+.mdl-card__supporting-text {
+    min-height: 32%;
+}
+
+.mdl-card__title {
     color: white;
+    background-repeat: round;
+    min-height: 100px;
+    max-height: 100px;
+}
+
+.live-streaming {
+    color: red;
 }

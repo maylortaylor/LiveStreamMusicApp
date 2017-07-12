@@ -11,4 +11,5 @@ export class YoutubeSubscription {
     thumbnails: any;
     totalItemCount: number;
     newItemCount: number;
+    isLiveStreaming: boolean = false;
 }

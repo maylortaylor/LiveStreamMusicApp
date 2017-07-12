@@ -6,7 +6,7 @@ export class HelpfulService {
     constructor() {
     }
 
-    truncate(str, length, ending) {
+    truncate(str, length, ending = null) {
         if (length == null) {
         length = 100;
         }

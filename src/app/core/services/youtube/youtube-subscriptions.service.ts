@@ -11,7 +11,6 @@ import { Globals } from '../../globals';
 
 @Injectable()
 export class YoutubeSubscriptionsService {
-  streams: FirebaseListObservable<any[]>;
   baseUrl: string = "https://www.googleapis.com/youtube/v3/subscriptions?";
   youtubeKey: string;
 

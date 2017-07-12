@@ -24,6 +24,8 @@ import { YoutubeSubscriptionsService } from '../app/core/services/youtube/youtub
 import { HelpfulService } from './core/services/helpful/helpful.service';
 import { Globals } from './core/globals';
 import { ContentMapperService } from './core/services/youtube/content-mapper.service';
+import { YoutubeLivestreamsService } from './core/services/youtube/youtube-livestreams.service';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
     authDomain: "livestreammusicapp.firebaseapp.com",
@@ -58,7 +60,8 @@ export const firebaseConfig = {
     UserService,
     YoutubeSubscriptionsService,
     HelpfulService,
-    ContentMapperService
+    ContentMapperService,
+    YoutubeLivestreamsService
   ],
   bootstrap: [
     AppComponent
