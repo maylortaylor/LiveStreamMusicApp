@@ -20,4 +20,14 @@
 
 .live-streaming {
     color: red;
+    /* position: relative;
+    left: 80px;
+    top: 10px */
+}
+
+.live-stream-published-date {
+    font-size: x-small;
+    position: relative;
+    left: 80px;
+    top: 10px;
 }

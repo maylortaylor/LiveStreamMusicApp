@@ -9,18 +9,19 @@
         <div class="mdl-card__actions mdl-card--border">
             <a *ngIf="channel.isLiveStreaming" href="https://www.youtube.com/watch?v={{channel.liveStreamVideoId}}" target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                 Go Listen
+                <span *ngIf="channel.isLiveStreaming" class="live-streaming">LIVE!</span>
             </a>
             <a *ngIf="!channel.isLiveStreaming" href="https://www.youtube.com/channel/{{channel.channelId}}/videos" target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                 Backlog
             </a>
-            <span *ngIf="channel.isLiveStreaming" class="live-streaming">LIVE!</span>
-            <span *ngIf="channel.isLiveStreaming">since {{channel.publishedAt | date}}</span>
+
+            <span *ngIf="channel.isLiveStreaming" class="live-stream-published-date">since {{channel.publishedAt | date}}</span>
         </div>
-        <div class="mdl-card__menu">
+        <!-- <div class="mdl-card__menu">
             <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                 <i class="material-icons">share</i>
             </button>
-        </div>
+        </div> -->
     </div>
 
 </div>

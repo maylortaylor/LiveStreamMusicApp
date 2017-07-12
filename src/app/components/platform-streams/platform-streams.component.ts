@@ -69,7 +69,7 @@ export class PlatformStreamsComponent implements OnInit {
       var sub = subs[i];
       this.livestream.isChannelLivestreaming(sub.channelId)
       .then(ls => {
-        console.log("LS", ls);
+        // console.log("LS", ls);
         if (!!ls) {
           if (!!ls.items.length) {
             var liveStream: any = _.first(ls.items);
