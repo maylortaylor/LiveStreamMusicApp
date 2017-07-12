@@ -33,7 +33,7 @@ export class YoutubeSubscriptionsService {
    }
   async getSubscriptionsFromChannelId(channelId: string) {
     var channelIdItem = "&channelId=" + channelId;
-    var url = this.baseUrl + "maxResults=50&part=snippet,contentDetails" + channelIdItem + this.youtubeKey;
+    var url = this.baseUrl + "maxResults=50&part=id,snippet,contentDetails" + channelIdItem + this.youtubeKey;
 
     var webCall = this.http.get(url)
                 .map((res: Response) => res.json())

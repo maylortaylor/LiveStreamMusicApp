@@ -7,6 +7,7 @@ export class YoutubeSubscription {
     description: string;
     publishedAt: string;
     channelId: string;
+    channelName: string;
     customUrl: string;
     thumbnails: any;
     totalItemCount: number;
