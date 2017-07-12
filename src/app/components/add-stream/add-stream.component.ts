@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { EmitterService } from '../../emitter.service';
 import { UserService } from '../../core/auth/user.service';
-import { PlatformStreamsService } from '../../core/services/firebaseDb/platform-streams.service';
+import { PlatformStreamsFBService } from '../../core/services/firebaseDb/platform-streams.service';
 import { UserModel } from '../../core/models/user.model';
 
 
@@ -26,7 +26,7 @@ export class AddStreamComponent implements OnInit {
   constructor(
       public af: AngularFireDatabase,
       private userService: UserService,
-      private streamData: PlatformStreamsService
+      private streamData: PlatformStreamsFBService
     ) {
    }
 

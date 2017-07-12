@@ -25,23 +25,38 @@ export class YoutubeSubscriptionsService {
   }
 
    getYoutubeCreatorInfo(channelId: string) : Observable<YoutubeCreator> {
-    var channelId = `&channelId=${channelId}`;
-    var url = this.baseUrl + `part=snippet,contentDetails` + channelId + this.youtubeKey;
+    var channelIdItem = "&channelId=" + channelId;
+    var url = this.baseUrl + "part=snippet,contentDetails" + channelIdItem + this.youtubeKey;
 
     return this.http.get(url)
                 .map((res: Response) => res.json())
                 .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
    }
-   getSubscriptionsFromChannelId(channelId: string) {
-    var channelId = `&channelId=${channelId}`;
-    var url = this.baseUrl + `part=snippet,contentDetails` + this.youtubeKey;
+  async getSubscriptionsFromChannelId(channelId: string) {
+    var channelIdItem = "&channelId=" + channelId;
+    var url = this.baseUrl + "maxResults=50&part=snippet,contentDetails" + channelIdItem + this.youtubeKey;
 
-    return this.http.get(url)
-                .map((res: Response) => {
-                  var data = res.json();
-                  return data;
-                })
+    var webCall = this.http.get(url)
+                .map((res: Response) => res.json())
                 .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+
+    return webCall.toPromise();
+    // webCall.subscribe(
+    //   data => {
+    //   console.log("SUBS", data);
+    //   if (!!data) {
+    //     var ids = [];
+    //     for (var i = 0; i < data.items.length; i++) {
+    //       var sub = data.items[i];
+    //       ids.push(sub.id);
+    //     }
+    //     return ids;
+    //   }
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
    }
 
 
