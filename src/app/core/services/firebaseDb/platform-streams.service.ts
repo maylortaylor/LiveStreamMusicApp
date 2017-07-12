@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { YoutubeCreator } from './models/YoutubeCreator'
+import { YoutubeCreator } from '../models/YoutubeCreator'
 @Injectable()
-export class PlatformStreamsService {
+export class PlatformStreamsFBService {
   streams: FirebaseListObservable<any[]>;
   channels: any;
 

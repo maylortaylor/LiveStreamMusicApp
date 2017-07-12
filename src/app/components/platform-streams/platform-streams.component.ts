@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { PlatformStreamsService } from '../../core/services/platform-streams.service';
+import { PlatformStreamsFBService } from '../../core/services/firebaseDb/platform-streams.service';
 import { HelpfulService } from '../../core/services/helpful/helpful.service'
+import { YoutubeSubscriptionsService } from '../../core/services/youtube/youtube-subscriptions.service'
+
 @Component({
   selector: 'app-platform-streams',
   templateUrl: './platform-streams.component.html',
@@ -13,12 +15,16 @@ export class PlatformStreamsComponent implements OnInit {
 
   constructor(
       public af: AngularFireDatabase,
-      private streamData: PlatformStreamsService,
+      private platformFB: PlatformStreamsFBService,
       private helpful: HelpfulService
     ) {  }
 
   async ngOnInit() {
-    this.platformChannels = await this.streamData.getListOfPlatformStreams()
+    this.platformChannels = this.getPlatformChannels();
+  }
+
+  private async getPlatformChannels() {
+    return await this.platformFB.getListOfPlatformStreams()
       .then((data) => {
         data.subscribe(items => {
           console.log(items);

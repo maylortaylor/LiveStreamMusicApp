@@ -18,9 +18,9 @@ import { AddStreamComponent } from '../app/components/add-stream/add-stream.comp
 import { NavBarComponent } from '../app/components/nav-bar/nav-bar.component';
 import { PlatformStreamsComponent } from '../app/components/platform-streams/platform-streams.component';
 
-import { PlatformStreamsService } from '../app/core/services/platform-streams.service';
+import { PlatformStreamsFBService } from '../app/core/services/firebaseDb/platform-streams.service';
 import { UserService } from '../app/core/auth/user.service';
-import { YoutubeApiService } from '../app/core/services/youtube/youtube-api.service';
+import { YoutubeSubscriptionsService } from '../app/core/services/youtube/youtube-subscriptions.service';
 import { HelpfulService } from './core/services/helpful/helpful.service'
 
 export const firebaseConfig = {
@@ -52,9 +52,9 @@ export const firebaseConfig = {
     HttpModule
   ],
   providers: [
-    PlatformStreamsService,
+    PlatformStreamsFBService,
     UserService,
-    YoutubeApiService,
+    YoutubeSubscriptionsService,
     HelpfulService
   ],
   bootstrap: [

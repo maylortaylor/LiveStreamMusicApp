@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { EmitterService } from '../../emitter.service';
 import { UserService } from '../../core/auth/user.service';
-import { PlatformStreamsService } from '../../core/services/platform-streams.service';
+import { PlatformStreamsService } from '../../core/services/firebaseDb/platform-streams.service';
 import { UserModel } from '../../core/models/user.model';
-import { YoutubeApiService } from '../../core/services/youtube/youtube-api.service';
 
 
 import { Observable } from "rxjs/Observable";
@@ -27,9 +26,8 @@ export class AddStreamComponent implements OnInit {
   constructor(
       public af: AngularFireDatabase,
       private userService: UserService,
-      private streamData: PlatformStreamsService,
-      private ytApi: YoutubeApiService
-  ) {
+      private streamData: PlatformStreamsService
+    ) {
    }
 
   ngOnInit() {
@@ -40,11 +38,11 @@ export class AddStreamComponent implements OnInit {
   }
 
   public SendStreamLink(streamUrl: string) {
-    this.ytApi.getYoutubeCreatorInfo('UCjhXxThStadXnlXFc_Yj55w')
-      .subscribe(res => {
-        console.log(res);
+    // this.ytApi.getYoutubeCreatorInfo('UCjhXxThStadXnlXFc_Yj55w')
+    //   .subscribe(res => {
+    //     console.log(res);
         
-      })
+    //   })
     //check link with url regex
     // if (this.isAValidUrl(streamUrl)) {
     //   this.AddStreamLink(streamUrl);
