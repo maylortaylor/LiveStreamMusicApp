@@ -19,7 +19,7 @@ export class ContentMapperService {
             newSub.channelId = sub.snippet.resourceId.channelId;
             newSub.title = sub.snippet.title;
             newSub.description = this.helpful.truncate(sub.snippet.description, 280);
-            newSub.publishedAt = sub.snippet.publishedAt;
+            // newSub.publishedAt = sub.snippet.publishedAt; //sub.publishedAt is when you subscribed to the channel (not very helpful)
             newSub.thumbnails = sub.snippet.thumbnails;
             newSub.totalItemCount = sub.contentDetails.totalItemCount;
             newSub.newItemCount = sub.contentDetails.newItemCount;

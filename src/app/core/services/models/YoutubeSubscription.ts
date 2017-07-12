@@ -12,4 +12,5 @@ export class YoutubeSubscription {
     totalItemCount: number;
     newItemCount: number;
     isLiveStreaming: boolean = false;
+    liveStreamVideoId: string;
 }

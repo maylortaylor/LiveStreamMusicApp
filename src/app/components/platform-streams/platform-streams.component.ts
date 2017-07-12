@@ -40,8 +40,9 @@ export class PlatformStreamsComponent implements OnInit {
         var subs = this.mapper.mapSubscriptionToYoutubeCreator(data);
         //check each sub to see if it is currently live streaming
         this.checkSubscriptionsForCurrentlyLivestreaming(subs);
-        console.log("SUBSCRIPTIONS", subs);
-        this.platformChannels = subs;
+        var sortedSubs = _.orderBy(subs, ['publishedAt']);
+        console.log("SUBSCRIPTIONS", sortedSubs);
+        this.platformChannels = sortedSubs;
       }
 
     }
@@ -68,14 +69,18 @@ export class PlatformStreamsComponent implements OnInit {
       var sub = subs[i];
       this.livestream.isChannelLivestreaming(sub.channelId)
       .then(ls => {
-        // console.log("LS", ls);
+        console.log("LS", ls);
         if (!!ls) {
           if (!!ls.items.length) {
             var liveStream: any = _.first(ls.items);
             var lsChannelId = liveStream.snippet.channelId;
+            var lsPublishedAt = liveStream.snippet.publishedAt;
+            var lsVideoId = liveStream.id.videoId;
             var channel: YoutubeSubscription = _.first(_.filter(subs, {'channelId': lsChannelId}));
 
             channel.isLiveStreaming = true;
+            channel.publishedAt = lsPublishedAt;
+            channel.liveStreamVideoId = lsVideoId;
           }
         }
       });
