@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { PlatformStreamsFBService } from '../../core/services/firebaseDb/platform-streams.service';
-import { HelpfulService } from '../../core/services/helpful/helpful.service'
-import { YoutubeSubscriptionsService } from '../../core/services/youtube/youtube-subscriptions.service'
-import { Globals } from '../../core/globals'
-import { ContentMapperService } from '../../core/services/youtube/content-maper.service'
+import { HelpfulService } from '../../core/services/helpful/helpful.service';
+import { YoutubeSubscriptionsService } from '../../core/services/youtube/youtube-subscriptions.service';
+import { Globals } from '../../core/globals';
+import { ContentMapperService } from '../../core/services/youtube/content-mapper.service';
 
 @Component({
   selector: 'app-platform-streams',
