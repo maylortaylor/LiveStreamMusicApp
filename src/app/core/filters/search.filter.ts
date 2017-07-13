@@ -12,7 +12,7 @@ export class SearchFilterPipe implements PipeTransform {
             return Object.keys(item).some(
                 k => {
                     if (item[k] != null && item[k] != undefined && typeof item[k] == 'string')
-                        return item[k].includes(term.toLowerCase());
+                        return item[k].toLowerCase().includes(term.toLowerCase());
                 }
             );
         });
