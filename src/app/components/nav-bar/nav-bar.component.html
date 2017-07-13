@@ -1,5 +1,5 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
-    
+
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <span class="mdl-layout-title"><a class="mdl-navigation__link app-link" href="#">{{title}}</a></span>
@@ -16,7 +16,7 @@
                     <i class="material-icons">search</i>
                 </label>
                 <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" id="search-expandable" />
+                    <input class="mdl-textfield__input" type="text" id="search-expandable" [ngModel]="searchFilter" (ngModelChange)="onChange($event)" />
                     <label class="mdl-textfield__label" for="search-expandable">Search text</label>
                 </div>
             </div>

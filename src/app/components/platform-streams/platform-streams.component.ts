@@ -1,5 +1,5 @@
 import * as _ from "lodash";
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { PlatformStreamsFBService } from '../../core/services/firebaseDb/platform-streams.service';
 import { HelpfulService } from '../../core/services/helpful/helpful.service';
@@ -8,14 +8,20 @@ import { Globals } from '../../core/globals';
 import { ContentMapperService } from '../../core/services/youtube/content-mapper.service';
 import { YoutubeSubscription } from '../../core/services/models/YoutubeSubscription';
 import { YoutubeLivestreamsService } from '../../core/services/youtube/youtube-livestreams.service';
+
+import { Subscription } from 'rxjs/Subscription';
+import { SearchService } from '../../core/services/helpful/search.service';
+
 @Component({
   selector: 'app-platform-streams',
   templateUrl: './platform-streams.component.html',
   styleUrls: ['./platform-streams.component.less']
 })
-export class PlatformStreamsComponent implements OnInit {
+export class PlatformStreamsComponent implements OnInit, OnDestroy {
+  private subscriber: Subscription;
   streams: FirebaseListObservable<any[]>;
   platformChannels: any;
+  searchWord: string;
 
   constructor(
       public af: AngularFireDatabase,
@@ -24,13 +30,25 @@ export class PlatformStreamsComponent implements OnInit {
       private ytSubscriptions: YoutubeSubscriptionsService,
       private globals: Globals,
       private mapper: ContentMapperService,
-      private livestream: YoutubeLivestreamsService
+      private livestream: YoutubeLivestreamsService,
+      private ss: SearchService
     ) {  }
 
   async ngOnInit() {
     this.getMusicCuratorsSubscriptions()
 
     // this.platformChannels = this.getPlatformChannels();
+    this.subscriber = this.ss.text$.subscribe(
+      data => { 
+        this.searchWord = data
+      });
+  }
+  ngOnDestroy()
+  {
+    if (this.subscriber)
+    {
+      this.subscriber.unsubscribe();
+    }
   }
 
   private async getMusicCuratorsSubscriptions() {
