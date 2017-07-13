@@ -11,7 +11,7 @@ import { YoutubeLivestreamsService } from '../../core/services/youtube/youtube-l
 @Component({
   selector: 'app-platform-streams',
   templateUrl: './platform-streams.component.html',
-  styleUrls: ['./platform-streams.component.css']
+  styleUrls: ['./platform-streams.component.less']
 })
 export class PlatformStreamsComponent implements OnInit {
   streams: FirebaseListObservable<any[]>;
