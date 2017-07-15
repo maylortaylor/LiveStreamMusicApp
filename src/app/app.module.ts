@@ -13,6 +13,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthModule } from './core/auth/auth.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { AppRouting } from './app.routes';
+import { FormsModule }   from '@angular/forms';
 
 import { AddStreamComponent } from '../app/components/add-stream/add-stream.component';
 import { NavBarComponent } from '../app/components/nav-bar/nav-bar.component';
@@ -25,7 +26,9 @@ import { HelpfulService } from './core/services/helpful/helpful.service';
 import { Globals } from './core/globals';
 import { ContentMapperService } from './core/services/youtube/content-mapper.service';
 import { YoutubeLivestreamsService } from './core/services/youtube/youtube-livestreams.service';
+import { SearchService } from './core/services/helpful/search.service';
 
+import { SearchFilterPipe } from './core/filters/search.filter';
 export const firebaseConfig = {
     apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
     authDomain: "livestreammusicapp.firebaseapp.com",
@@ -41,7 +44,8 @@ export const firebaseConfig = {
     AppComponent,
     PlatformStreamsComponent,
     AddStreamComponent,
-    NavBarComponent
+    NavBarComponent,
+    SearchFilterPipe
   ],
   imports: [
     AppRouting,
@@ -52,7 +56,8 @@ export const firebaseConfig = {
     BrowserModule,
     CommonModule,
     DashboardModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     Globals,
@@ -61,7 +66,8 @@ export const firebaseConfig = {
     YoutubeSubscriptionsService,
     HelpfulService,
     ContentMapperService,
-    YoutubeLivestreamsService
+    YoutubeLivestreamsService,
+    SearchService
   ],
   bootstrap: [
     AppComponent

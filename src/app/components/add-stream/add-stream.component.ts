@@ -14,7 +14,7 @@ import * as firebase from 'firebase/app';
 @Component({
   selector: 'app-add-stream',
   templateUrl: './add-stream.component.html',
-  styleUrls: ['./add-stream.component.css']
+  styleUrls: ['./add-stream.component.less']
 })
 export class AddStreamComponent implements OnInit {
   app: AppComponent;
