@@ -1,17 +1,12 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { authRouting } from './auth.routing';
-import { LoginComponent, SignupComponent } from './auth.component';
+import { AuthRouting } from "./auth.routing";
+import { SignupComponent } from "./auth.component";
+import { LoginComponent } from "./login.component";
 
 @NgModule({
-    imports:[
-        authRouting,
-        FormsModule
-    ],
-    declarations: [
-        LoginComponent,
-        SignupComponent
-    ]
+  imports: [AuthRouting, FormsModule],
+  declarations: [LoginComponent, SignupComponent]
 })
-export class AuthModule { }
+export class AuthModule {}

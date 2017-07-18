@@ -1,0 +1,4 @@
+<div *ngIf="(user)?.uid" class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--4-col">
+    <input class="mdl-textfield__input" type="text" id="channel_id" (keyup.enter)="SendChannelId($event.target.value)" [(ngModel)]="channelId">
+    <label class="mdl-textfield__label" for="channel_id">Give me a channel ID</label>
+</div>

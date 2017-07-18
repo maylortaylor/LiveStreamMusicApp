@@ -39,7 +39,7 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 
     // this.platformChannels = this.getPlatformChannels();
     this.subscriber = this.ss.text$.subscribe(
-      data => { 
+      data => {
         this.searchWord = data
       });
   }
@@ -68,8 +68,8 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
       console.log("LOST get subs", data);
     }
     await this.ytSubscriptions.getSubscriptionsFromChannelId(this.globals.musicCuratorChannelId)
-    .then(wonGetSubs)
-    .catch(lostGetSubs);
+      .then(wonGetSubs)
+      .catch(lostGetSubs);
   }
   private async getPlatformChannels() {
     return await this.platformFB.getListOfPlatformStreams()
