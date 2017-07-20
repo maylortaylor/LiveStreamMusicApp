@@ -12,8 +12,12 @@ https://developers.google.com/youtube/v3/docs/
 https://medium.freecodecamp.com/angular-2-authentication-made-easy-with-firebase-246c282d9ef8
 
 ## UI
-uses [Material Design Lite] 
+uses [Material Design Lite]
 https://getmdl.io/components/index.html
+
+## CSS
+uses [GRID-lex]
+http://gridlex.devlint.fr/
 
 https://material.io/icons/
 

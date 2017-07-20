@@ -30,56 +30,61 @@ import { YoutubeLivestreamsService } from "./core/services/youtube/youtube-lives
 import { SearchService } from "./core/services/helpful/search.service";
 import { AuthGuard } from "./core/auth/auth-guard.service";
 import { AuthService } from "./core/auth/auth.service";
-
+import { YoutubeChannelService } from "./core/services/youtube/youtube-channel.service";
+import { YoutubeVideoService } from "./core/services/youtube/youtube-video.service";
+import { FirebaseUploadService } from "./core/services/firebaseDb/firebaseUpload.service";
 import { SearchFilterPipe } from "./core/filters/search.filter";
 export const firebaseConfig = {
-  apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
-  authDomain: "livestreammusicapp.firebaseapp.com",
-  databaseURL: "https://livestreammusicapp.firebaseio.com",
-  projectId: "livestreammusicapp",
-  storageBucket: "livestreammusicapp.appspot.com",
-  messagingSenderId: "852655274432"
+	apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
+	authDomain: "livestreammusicapp.firebaseapp.com",
+	databaseURL: "https://livestreammusicapp.firebaseio.com",
+	projectId: "livestreammusicapp",
+	storageBucket: "livestreammusicapp.appspot.com",
+	messagingSenderId: "852655274432"
 };
 
 @NgModule({
-  declarations: [
-    //  Components
-    AppComponent,
-    PlatformStreamsComponent,
-    AddStreamComponent,
-    NavBarComponent,
-    AdminComponent,
+	declarations: [
+		//  Components
+		AppComponent,
+		PlatformStreamsComponent,
+		AddStreamComponent,
+		NavBarComponent,
+		AdminComponent,
 
-    //  Filters
-    SearchFilterPipe
-  ],
-  imports: [
-    //  Routes
-    AppRouting,
-    //  Angular Firebase
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    //  Moudles
-    AuthModule,
-    BrowserModule,
-    CommonModule,
-    DashboardModule,
-    HttpModule,
-    FormsModule
-  ],
-  providers: [
-    Globals,
-    PlatformStreamsFBService,
-    UserService,
-    YoutubeSubscriptionsService,
-    HelpfulService,
-    ContentMapperService,
-    YoutubeLivestreamsService,
-    SearchService,
-    AuthGuard,
-    AuthService
-  ],
-  bootstrap: [AppComponent]
+		//  Filters
+		SearchFilterPipe
+	],
+	imports: [
+		//  Routes
+		AppRouting,
+		//  Angular Firebase
+		AngularFireModule.initializeApp(firebaseConfig),
+		AngularFireDatabaseModule,
+		AngularFireAuthModule,
+		//  Moudles
+		AuthModule,
+		BrowserModule,
+		CommonModule,
+		DashboardModule,
+		HttpModule,
+		FormsModule
+	],
+	providers: [
+		Globals,
+		PlatformStreamsFBService,
+		UserService,
+		YoutubeSubscriptionsService,
+		HelpfulService,
+		ContentMapperService,
+		YoutubeLivestreamsService,
+		SearchService,
+		AuthGuard,
+		AuthService,
+		FirebaseUploadService,
+		YoutubeChannelService,
+		YoutubeVideoService
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
