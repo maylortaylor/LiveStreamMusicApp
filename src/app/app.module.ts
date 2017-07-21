@@ -34,6 +34,8 @@ import { YoutubeChannelService } from "./core/services/youtube/youtube-channel.s
 import { YoutubeVideoService } from "./core/services/youtube/youtube-video.service";
 import { FirebaseUploadService } from "./core/services/firebaseDb/firebaseUpload.service";
 import { SearchFilterPipe } from "./core/filters/search.filter";
+import { ChannelComponent } from "./components/channel/channel.component";
+
 export const firebaseConfig = {
 	apiKey: "AIzaSyDthkgNHn0XD4hmUiU1bp4O_A0wGoCtY18",
 	authDomain: "livestreammusicapp.firebaseapp.com",
@@ -47,13 +49,14 @@ export const firebaseConfig = {
 	declarations: [
 		//  Components
 		AppComponent,
-		PlatformStreamsComponent,
+		// PlatformStreamsComponent,
 		AddStreamComponent,
 		NavBarComponent,
 		AdminComponent,
+		ChannelComponent
 
 		//  Filters
-		SearchFilterPipe
+		// SearchFilterPipe
 	],
 	imports: [
 		//  Routes

@@ -13,6 +13,8 @@ import { YoutubeVideoService } from "../../core/services/youtube/youtube-video.s
 import { Subscription } from "rxjs/Subscription";
 import { SearchService } from "../../core/services/helpful/search.service";
 import { YoutubeChannel } from "../../core/services/models/YoutubeChannel";
+import { Router } from "@angular/router";
+
 @Component({
 	selector: "app-platform-streams",
 	templateUrl: "./platform-streams.component.html",
@@ -34,7 +36,8 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 		private livestream: YoutubeLivestreamsService,
 		private ss: SearchService,
 		private fbu: FirebaseUploadService,
-		private ytVideo: YoutubeVideoService
+		private ytVideo: YoutubeVideoService,
+		private router: Router
 	) {}
 
 	async ngOnInit() {
@@ -50,7 +53,9 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 			this.subscriber.unsubscribe();
 		}
 	}
-
+	goToChannelsPage(channelId: string) {
+		this.router.navigate([`/channel/${channelId}`]);
+	}
 	private async getMusicCuratorsSubscriptions() {
 		var wonGetSubs = data => {
 			console.log("WON get subs", data);
@@ -76,10 +81,10 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 				for (var i = 0; i < items.length; i++) {
 					var channel: YoutubeChannel = items[i];
 					var videos = this.ytVideo.getActiveLiveStreamsByChannelId(channel.id).then(response => {
-						if (!!response.items.length) {
-							channel.livestream = _.first(response.items);
+						console.log("live stream video", response);
+						if (!!response.length) {
+							channel.livestream = _.first(response);
 							channel.isLiveStreaming = true;
-							console.log("live stream video", response);
 						}
 					});
 				}
