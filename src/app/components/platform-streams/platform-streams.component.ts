@@ -43,7 +43,7 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 	async ngOnInit() {
 		// this.getMusicCuratorsSubscriptions();
 
-		this.platformChannels = this.getPlatformChannels();
+		await this.getPlatformChannels();
 		this.subscriber = this.ss.text$.subscribe(data => {
 			this.searchWord = data;
 		});

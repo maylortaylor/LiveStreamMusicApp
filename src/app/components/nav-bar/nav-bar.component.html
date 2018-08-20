@@ -11,7 +11,6 @@
                 <a class="mdl-navigation__link" [hidden]="(!authService.isAuthenticated())" (click)="logOut()" href="#">Logout</a>
             </nav>
 
-            <!-- start search form -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                 <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
                     <i class="material-icons">search</i>
@@ -26,13 +25,13 @@
         </div>
     </header>
 
-    <div class="mdl-layout__drawer">
+    <!-- <div class="mdl-layout__drawer">
         <span class="mdl-layout-title"><a class="mdl-navigation__link app-link" href="#">{{title}}</a></span>
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" [hidden]="(authService.isAuthenticated())" routerLink="/login">Login</a>
             <a class="mdl-navigation__link" [hidden]="(authService.isAuthenticated())" (click)="signInAnonymously()" href="#">Anonymous Login</a>
             <a class="mdl-navigation__link" [hidden]="!(authService.isAuthenticated())" (click)="logOut()" href="#">Logout</a>
         </nav>
-    </div>
+    </div> -->
 
 </div>
