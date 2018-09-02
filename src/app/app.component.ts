@@ -20,7 +20,7 @@ export class AppComponent {
       public af: AngularFireDatabase,
       private userService: UserService
     )  {
-      this.userService.afAuth.auth.onAuthStateChanged((user) => {
+        this.userService.afAuth.auth.onAuthStateChanged((user) => {
         this.userService.setUser(user);
       });
   }

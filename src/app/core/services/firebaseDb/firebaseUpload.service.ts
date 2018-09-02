@@ -6,13 +6,14 @@ import { YoutubeSubscription } from "../models/YoutubeSubscription";
 import { YoutubeChannelService } from "../../services/youtube/youtube-channel.service";
 import { ContentMapperService } from "../youtube/content-mapper.service";
 import { YoutubeChannel } from "../models/YoutubeChannel";
+
 @Injectable()
 export class FirebaseUploadService {
 	channels = new Array<YoutubeChannel>();
 
 	constructor(
 		private mapper: ContentMapperService,
-		private ytchanel: YoutubeChannelService,
+		private ytchannel: YoutubeChannelService,
 		private af: AngularFireDatabase,
 		private _sanitizer: DomSanitizer
 	) {}
@@ -33,7 +34,7 @@ export class FirebaseUploadService {
 		};
 		for (var i = 0; i < subs.length; i++) {
 			var sub = subs[i];
-			var channel = this.ytchanel.getChannelById(sub.channelId);
+			var channel = this.ytchannel.getChannelById(sub.channelId);
 			channel.then(wonGetChannel).catch(lostGetChannel);
 		}
 	}

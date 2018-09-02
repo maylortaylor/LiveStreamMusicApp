@@ -28,7 +28,7 @@ export class YoutubeChannelService {
 
 		var webCall = this.http
 			.get(url)
-			.map((res: Response) => res.json())
+			.map((res: Response) => res.json().items[0])
 			.catch((error: any) => Observable.throw(error.json().error || "Server error"));
 
 		return webCall.toPromise();
