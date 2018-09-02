@@ -19,7 +19,7 @@ export class ChannelComponent implements OnInit {
 	ngOnInit() {
 		var d = this.route.paramMap.subscribe(paramMap => {
 			var channelId = paramMap.get("channelId");
-			console.log(channelId);
+			console.log("Channel Component", channelId);
 			this.getChannel(channelId);
 		});
 	}

@@ -3,6 +3,23 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
 import { CommonModule } from "@angular/common";
 import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularReduxRequestOptions } from "./core/services/core/http/angularReduxRequest.options"
+// import {
+// 	MAT_DIALOG_DEFAULT_OPTIONS,
+// 	MatAutocompleteModule,
+// 	MatDatepickerModule,
+// 	MatDialogModule,
+// 	MatExpansionModule,
+// 	MatGridListModule,
+// 	MatInputModule,
+// 	MatNativeDateModule,
+// 	MatPaginatorModule,
+// 	MatProgressBarModule,
+  
+// 	MatProgressSpinnerModule
+//   } from '@angular/material';
+
 // import { FormsModule } from '@angular/forms';
 // import { HttpModule, JsonpModule } from '@angular/http';
 
@@ -10,6 +27,7 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 
+import { CoreModule } from "./core/services/core/core.module";
 import { AuthModule } from "./core/auth/auth.module";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
 import { AppRouting } from "./app.routes";
@@ -33,6 +51,8 @@ import { AuthService } from "./core/auth/auth.service";
 import { YoutubeChannelService } from "./core/services/youtube/youtube-channel.service";
 import { YoutubeVideoService } from "./core/services/youtube/youtube-video.service";
 import { FirebaseUploadService } from "./core/services/firebaseDb/firebaseUpload.service";
+import { HttpService } from './core/services/core/http/http.service';
+
 import { SearchFilterPipe } from "./core/filters/search.filter";
 import { ChannelComponent } from "./components/channel/channel.component";
 
@@ -59,13 +79,17 @@ export const firebaseConfig = {
 		// SearchFilterPipe
 	],
 	imports: [
+		// Material
+		BrowserAnimationsModule,
+		// MatProgressBarModule,
 		//  Routes
 		AppRouting,
 		//  Angular Firebase
 		AngularFireModule.initializeApp(firebaseConfig),
 		AngularFireDatabaseModule,
 		AngularFireAuthModule,
-		//  Moudles
+		//  Modules
+		CoreModule,
 		AuthModule,
 		BrowserModule,
 		CommonModule,
@@ -75,6 +99,7 @@ export const firebaseConfig = {
 	],
 	providers: [
 		Globals,
+		AngularReduxRequestOptions,
 		PlatformStreamsFBService,
 		UserService,
 		YoutubeSubscriptionsService,
@@ -86,7 +111,8 @@ export const firebaseConfig = {
 		AuthService,
 		FirebaseUploadService,
 		YoutubeChannelService,
-		YoutubeVideoService
+		YoutubeVideoService,
+		HttpService
 	],
 	bootstrap: [AppComponent]
 })
