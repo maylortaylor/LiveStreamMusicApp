@@ -3,8 +3,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
 import { CommonModule } from "@angular/common";
 import { AppComponent } from "./app.component";
-// import { FormsModule } from '@angular/forms';
-// import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
