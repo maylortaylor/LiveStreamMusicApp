@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from "@angular/platform-browser";
+import { Response } from "@angular/http";
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 
 import { HttpService } from "../../../services/core/http/http.service";
@@ -32,12 +33,14 @@ export class YoutubeChannelService {
 			channelIdItem +
 			this.youtubeKey;
 
-		var webCall = this.http
+		this.http
 			.get(url)
-			.map((res: Response) => res.json().items[0])
-			.catch((error: any) => Observable.throw(error.json().error || "Server error"));
+			.map((response : Response) => response.json())
+            .subscribe((result) => {
+                return result;
+            });
 
-		return webCall.toPromise();
+		// return webCall.toPromise();
 		// webCall.subscribe(
 		//   data => {
 		//   console.log("SUBS", data);

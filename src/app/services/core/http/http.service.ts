@@ -5,15 +5,12 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class HttpService {
   constructor(private http: Http) {}
-  post(url: string, body: any = {}) {
-    return this.request(url, RequestMethod.Post, body);
-  }
 
-  get(url: string) {
-    return this.request(url, RequestMethod.Get);
+  public get(url: string) {
+      return this.request(url, RequestMethod.Get);
   }
-  post(url: string) {
-      return this.request(url, RequestMethod.Post);
+  public post(url: string, body: any = {}) {
+    return this.request(url, RequestMethod.Post, body);
   }
 
   private request(url: string, method: RequestMethod, body?: any, isBlob = false): Observable<Response> {
