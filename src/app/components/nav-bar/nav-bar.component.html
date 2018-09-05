@@ -1,37 +1,63 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
+<nav class="navbar navbar-expand-md navbar-light bg-light navbar-fixed-top" role="navigation">
+    <div class="container">
+        <a href="/" class="navbar-brand">{{title}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{title}}</a>
+        </div> -->
+  
+    <div class="navbar-collapse collapse" id="navbar-collapsible">
 
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title"><a class="mdl-navigation__link app-link" href="#">{{title}}</a></span>
-            <span class="mdl-layout-title"><a class="mdl-navigation__link app-link" routerLink="/music">Music</a></span>
-            <div class="mdl-layout-spacer"></div>
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" [hidden]="(authService.isAuthenticated())" routerLink="/login">Login</a>
-                <a class="mdl-navigation__link" [hidden]="(authService.isAuthenticated())" (click)="signInAnonymously()" href="#">Anonymous Login</a>
-                <a class="mdl-navigation__link" [hidden]="(!authService.isAuthenticated())" (click)="logOut()" href="#">Logout</a>
-            </nav>
+        <!-- RIGHT SIDE OF NAVBAR -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/music">Music 
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        </ul>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
-                    <i class="material-icons">search</i>
-                </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" id="search-expandable" [ngModel]="searchFilter" (ngModelChange)="onChange($event)"
-                    />
-                    <label class="mdl-textfield__label" for="search-expandable">Search text</label>
+        <!-- NAVBAR SEARCH FORM -->
+        <form class="navbar-form ml-auto mr-auto">
+                <div class="form-group" style="display:inline;">
+    
+                    <div class="input-group">
+                        <input id="search-expandable" [ngModel]="searchFilter" (ngModelChange)="onChange($event)" 
+                                class="form-control border-right-0" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-primary border-left-0" type="submit">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
+            </form>
 
-        </div>
-    </header>
+        <!-- LEFT SIDE OF NAVBAR -->
+        <ul class="navbar-nav btn-group">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [hidden]="(authService.isAuthenticated())" routerLink="/login">Login</a>
+                    <a class="dropdown-item" [hidden]="(!authService.isAuthenticated())" (click)="logOut()" href="#">Logout</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" [hidden]="(authService.isAuthenticated())" (click)="signInAnonymously()" href="#">Anonymous Login</a>
+                </div>
+            </li>
+        </ul>
 
-    <!-- <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><a class="mdl-navigation__link app-link" href="#">{{title}}</a></span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" [hidden]="(authService.isAuthenticated())" routerLink="/login">Login</a>
-            <a class="mdl-navigation__link" [hidden]="(authService.isAuthenticated())" (click)="signInAnonymously()" href="#">Anonymous Login</a>
-            <a class="mdl-navigation__link" [hidden]="!(authService.isAuthenticated())" (click)="logOut()" href="#">Logout</a>
-        </nav>
-    </div> -->
-
+    </div>
 </div>
+
+</nav>

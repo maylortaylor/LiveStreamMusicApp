@@ -4,15 +4,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Getting Started
 
-1. navigate to Angular app folder  `/LiveStreamMusicApp` and run
+1. navigate to Angular app folder  `/LiveStreamMusicApp` and run:
 
         npm install
 
-2. stay in Angular app folder and run
+2. stay in Angular app folder and run:
+
+        ng build
+
+3. stay in Angular app folder and run:
 
         ng serve
 
-3. go to browser and go to `http://localhost:4200`
+4. go to browser and go to `http://localhost:4200`
 
 
 
