@@ -6,10 +6,8 @@ import { PlatformStreamsFBService } from "../../core/services/firebaseDb/platfor
 import { UserModel } from "../../core/models/user.model";
 
 import { Observable } from "rxjs/Observable";
-import {
-  AngularFireDatabase,
-  FirebaseListObservable
-} from "angularfire2/database";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from "firebase/app";
 
 @Component({
@@ -21,7 +19,7 @@ export class AddStreamComponent implements OnInit {
   app: AppComponent;
   user: UserModel;
 
-  streams: FirebaseListObservable<any[]>;
+  // streams: FirebaseListObservable<any[]>;
   streamUrl: string = "";
 
   constructor(
@@ -51,7 +49,7 @@ export class AddStreamComponent implements OnInit {
   }
 
   private AddStreamLink(streamUrl: string) {
-    this.streams.push({ streamUrl: streamUrl });
+    // this.streams.push({ streamUrl: streamUrl });
     this.streamUrl = "";
   }
   private isAValidUrl(val: string) {

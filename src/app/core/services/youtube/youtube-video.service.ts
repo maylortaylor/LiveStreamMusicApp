@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from "@angular/platform-browser";
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
-import { Http, Response, Headers, RequestOptions } from "@angular/http";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
+// import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
@@ -14,7 +15,12 @@ export class YoutubeVideoService {
 	baseUrl: string = "https://www.googleapis.com/youtube/v3/search?";
 	youtubeKey: string;
 
-	constructor(private http: Http, private af: AngularFireDatabase, private _sanitizer: DomSanitizer, private globals: Globals) {
+	constructor(
+		// private http: HttpClient, 
+		private af: AngularFireDatabase, 
+		private _sanitizer: DomSanitizer, 
+		private globals: Globals
+	) {
 		this.youtubeKey = "&key=" + this.globals.youtubeKey;
 	}
 
@@ -24,9 +30,9 @@ export class YoutubeVideoService {
 		// console.log("url", url);
 
 		var webCall = this.http
-			.get(url)
-			.map((res: Response) => res.json().items)
-			.catch((error: any) => Observable.throw(error.json().error || "Server error"));
+			.get(url);
+			// .map((res: Response) => res.json().items)
+			// .catch((error: any) => Observable.throw(error.json().error || "Server error"));
 
 		return webCall.toPromise();
 		// webCall.subscribe(

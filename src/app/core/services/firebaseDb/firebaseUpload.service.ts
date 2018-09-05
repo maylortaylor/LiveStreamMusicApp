@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from "@angular/platform-browser";
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { YoutubeCreator } from "../models/YoutubeCreator";
 import { YoutubeSubscription } from "../models/YoutubeSubscription";
 import { YoutubeChannelService } from "../../services/youtube/youtube-channel.service";

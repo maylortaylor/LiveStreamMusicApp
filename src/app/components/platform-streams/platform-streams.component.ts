@@ -1,6 +1,7 @@
 import * as _ from "lodash";
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { PlatformStreamsFBService } from "../../core/services/firebaseDb/platform-streams.service";
 import { HelpfulService } from "../../core/services/helpful/helpful.service";
 import { YoutubeSubscriptionsService } from "../../core/services/youtube/youtube-subscriptions.service";
@@ -22,7 +23,7 @@ import { Router } from "@angular/router";
 })
 export class PlatformStreamsComponent implements OnInit, OnDestroy {
 	private subscriber: Subscription;
-	streams: FirebaseListObservable<any[]>;
+	// streams: FirebaseListObservable<any[]>;
 	platformChannels: any;
 	searchWord: string;
 
@@ -75,23 +76,38 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 		await this.ytSubscriptions.getSubscriptionsFromChannelId(this.globals.musicCuratorChannelId).then(wonGetSubs).catch(lostGetSubs);
 	}
 	private async getPlatformChannels() {
-		return await this.platformFB.getListOfPlatformStreams().then(data => {
-			data.subscribe(items => {
-				console.log(items);
-				for (var i = 0; i < items.length; i++) {
-					var channel: YoutubeChannel = items[i];
-					var videos = this.ytVideo.getActiveLiveStreamsByChannelId(channel.id).then(response => {
-						console.log("live stream video", response);
-						if (!!response.length) {
-							channel.livestream = _.first(response);
-							channel.isLiveStreaming = true;
-						}
-					});
-				}
-				this.platformChannels = items;
-				this.cleanCreators(this.platformChannels);
-			});
+		var data = await this.platformFB.getListOfPlatformStreams();
+		
+		data.subscribe(res => {
+			console.log(res);
+			
 		});
+
+		// data.forEach(element => {
+		// 	console.log(element);
+		// });
+		// data.subscribe(items => {
+		// 	console.log(items);
+		// })
+		console.log(data);
+		debugger;
+		// return await this.platformFB.getListOfPlatformStreams().then(data => {
+		// 	data.subscribe(items => {
+		// 		console.log(items);
+		// 		for (var i = 0; i < items.length; i++) {
+		// 			var channel: YoutubeChannel = items[i];
+		// 			var videos = this.ytVideo.getActiveLiveStreamsByChannelId(channel.id).then(response => {
+		// 				console.log("live stream video", response);
+		// 				// if (!!response.length) {
+		// 				// 	channel.livestream = _.first(response);
+		// 				// 	channel.isLiveStreaming = true;
+		// 				// }
+		// 			});
+		// 		}
+		// 		this.platformChannels = items;
+		// 		this.cleanCreators(this.platformChannels);
+		// 	});
+		// });
 	}
 
 	checkSubscriptionsForCurrentlyLivestreaming(subs: YoutubeSubscription[]) {
