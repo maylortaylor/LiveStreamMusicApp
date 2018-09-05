@@ -1,6 +1,35 @@
-<div class="row">
-    <div  class="platform-stream card medium col s4 m4 l2" *ngFor="let channel of platformChannels | searchFilter: searchWord">
-        <!-- <h4>{{channel.snippet.title}}</h4> -->
+<div class="card-deck">
+    <div class="row">
+
+        <div class="col-sm-6 col-md-6 col-lg" *ngFor="let channel of platformChannels | searchFilter: searchWord">
+    
+            <div (click)="goToChannelsPage(channel.id)" class="card mb-4">
+                
+                <img class="card-img-top" src="{{getBackgroundImage(channel)}}" alt="{{channel.snippet.title}}">
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{channel.snippet.title}}</h5>
+                    <p class="card-text">{{channel.snippet.description}}</p>
+                    <a *ngIf="channel.isLiveStreaming" href="https://www.youtube.com/watch?v={{channel.livestream.id.videoId}}" target="_blank">
+                        Go Listen
+                        <span *ngIf="channel.isLiveStreaming" class="live-streaming">LIVE!</span>
+                    </a>
+                    <a *ngIf="!channel.isLiveStreaming" href="https://www.youtube.com/channel/{{channel.id}}/videos" target="_blank">
+                        Backlog
+                    </a>
+                    <div class="card-footer">
+                        <p *ngIf="channel.isLiveStreaming" class="card-text">
+                            <small class="text-muted">{{channel.livestream.snippet.publishedAt | date}}</small>
+                        </p>
+                    </div>
+                </div>
+        
+            </div>
+        
+        </div>
+    </div>
+</div>
+    <!-- <div  class="platform-stream card medium col s4 m4 l2" *ngFor="let channel of platformChannels | searchFilter: searchWord">
         <div (click)="goToChannelsPage(channel.id)">
             <div class="card-image">
                 <img src="{{getBackgroundImage(channel)}}" alt="">
@@ -23,4 +52,4 @@
         </div>
 
     </div>
-</div>
+</div> -->
