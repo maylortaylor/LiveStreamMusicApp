@@ -2,14 +2,27 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
+## Getting Started
+
+1. navigate to Angular app folder  `/LiveStreamMusicApp` and run
+
+        npm install
+
+2. stay in Angular app folder and run
+
+        ng serve
+
+3. go to browser and go to `http://localhost:4200`
+
+
 
 ## Backend Management
-https://console.developers.google.com/apis/credentials?project=livestreammusicapp-171123
-https://console.firebase.google.com/u/2/project/livestreammusicapp/database/data
 
-https://developers.google.com/youtube/v3/docs/
+[Google Console For LiveStreamMusicApp](https://console.developers.google.com/apis/credentials?project=livestreammusicapp-171123https://console.firebase.google.com/u/2/project/livestreammusicapp/database/data)
 
-https://medium.freecodecamp.com/angular-2-authentication-made-easy-with-firebase-246c282d9ef8
+[Youtube API v3 documentation](https://developers.google.com/youtube/v3/docs/)
+
+[Authentication for AngularFire](https://medium.freecodecamp.com/angular-2-authentication-made-easy-with-firebase-246c282d9ef8)
 
 ## UI
 uses [Material Design Lite]
