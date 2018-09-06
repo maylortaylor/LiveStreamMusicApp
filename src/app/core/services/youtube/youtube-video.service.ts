@@ -29,21 +29,5 @@ export class YoutubeVideoService {
 			.catch((error: any) => Observable.throw(error.json().error || "Server error"));
 
 		return webCall.toPromise();
-		// webCall.subscribe(
-		//   data => {
-		//   console.log("SUBS", data);
-		//   if (!!data) {
-		//     var ids = [];
-		//     for (var i = 0; i < data.items.length; i++) {
-		//       var sub = data.items[i];
-		//       ids.push(sub.id);
-		//     }
-		//     return ids;
-		//   }
-		//   },
-		//   err => {
-		//     console.log(err);
-		//   }
-		// );
 	}
 }
