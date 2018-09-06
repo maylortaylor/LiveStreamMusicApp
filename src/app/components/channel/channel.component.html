@@ -1,1 +1,11 @@
-<img *ngIf="channel" src="{{channel.brandingSettings.image.bannerImageUrl}}" alt="">
+<div *ngIf="channel">
+
+    <img src="{{channel.brandingSettings.image.bannerImageUrl}}" alt="">
+    <!-- <div class="background-img" [style.backgroundImage]="'url('+channel.brandingSettings.image.bannerImageUrl+')'">
+    </div> -->
+    <h1>{{ channel.snippet.title }}</h1>
+
+    <p>{{ channel.snippet.description }}</p>
+    
+
+</div>

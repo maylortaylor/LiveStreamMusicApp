@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, Input } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { AuthService } from "../../core/auth/auth.service";
 import { UserService } from "../../core/auth/user.service";
@@ -17,9 +17,14 @@ export class NavBarComponent implements OnInit {
 	user: UserModel;
 	searchFilter: string;
 
-	title: string = "Streamio";
+	title: string = "StreamCurator";
 
-	constructor(public authService: AuthService, private userService: UserService, private ss: SearchService, private cdr: ChangeDetectorRef) {}
+	constructor(
+		public authService: AuthService, 
+		private userService: UserService, 
+		private ss: SearchService, 
+		private cdr: ChangeDetectorRef
+	) {}
 
 	ngOnInit() {}
 	onChange(newValue: any) {

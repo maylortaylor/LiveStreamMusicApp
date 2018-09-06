@@ -4,15 +4,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">{{title}}</a>
-        </div> -->
   
     <div class="navbar-collapse collapse" id="navbar-collapsible">
 
@@ -28,16 +19,9 @@
         <!-- NAVBAR SEARCH FORM -->
         <form class="navbar-form ml-auto mr-auto">
                 <div class="form-group" style="display:inline;">
-    
-                    <div class="input-group">
-                        <input id="search-expandable" [ngModel]="searchFilter" (ngModelChange)="onChange($event)" 
-                                class="form-control border-right-0" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-primary border-left-0" type="submit">
-                                Search
-                            </button>
-                        </div>
-                    </div>
+  
+                    <input id="search-expandable" name="searchText" [ngModel]="searchFilter" (ngModelChange)="onChange($event)" 
+                            class="form-control border-right-0" placeholder="Search" type="search" aria-label="Search">
                     
                 </div>
             </form>

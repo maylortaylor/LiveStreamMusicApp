@@ -6,7 +6,8 @@ import * as _ from "lodash";
 
 @Component({
 	selector: "channel",
-	templateUrl: "channel.component.html"
+	templateUrl: "channel.component.html",
+	styleUrls: ["./channel.component.less"]
 })
 export class ChannelComponent implements OnInit {
 	channel: YoutubeChannel;
