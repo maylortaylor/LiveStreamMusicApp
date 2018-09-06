@@ -3,14 +3,14 @@
 
         <div class="col-sm-6 col-md-6 col-lg" *ngFor="let channel of platformChannels | searchFilter: searchWord">
     
-            <div (click)="goToChannelsPage(channel.id)" class="card mb-4">
+            <div *ngIf="channel" (click)="goToChannelsPage(channel.id)" class="card mb-4">
                 
-                <img class="card-img-top" src="{{getBackgroundImage(channel)}}" alt="{{channel.snippet.title}}">
+                <img class="card-img-top" src="{{getBackgroundImage(channel)}}" alt="{{channel.title}}">
                 
                 <div class="card-body">
-                    <h5 class="card-title">{{channel.snippet.title}}</h5>
-                    <p class="card-text">{{channel.snippet.description}}</p>
-                    <a *ngIf="channel.isLiveStreaming" href="https://www.youtube.com/watch?v={{channel.livestream.id.videoId}}" target="_blank">
+                    <h5 class="card-title">{{channel.title}}</h5>
+                    <p class="card-text">{{channel.description}}</p>
+                    <a *ngIf="channel.isLiveStreaming" href="https://www.youtube.com/watch?v={{channel.liveStreamVideoId}}" target="_blank">
                         Go Listen
                         <span *ngIf="channel.isLiveStreaming" class="live-streaming">LIVE!</span>
                     </a>
@@ -19,7 +19,7 @@
                     </a>
                     <div class="card-footer">
                         <p *ngIf="channel.isLiveStreaming" class="card-text">
-                            <small class="text-muted">{{channel.livestream.snippet.publishedAt | date}}</small>
+                            <small class="text-muted">{{channel.publishedAt | date}}</small>
                         </p>
                     </div>
                 </div>

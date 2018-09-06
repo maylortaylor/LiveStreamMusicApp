@@ -41,9 +41,9 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 	) {}
 
 	async ngOnInit() {
-		// this.getMusicCuratorsSubscriptions();
+		this.getMusicCuratorsSubscriptions();
 
-		await this.getPlatformChannels();
+		//await this.getPlatformChannels();
 		this.subscriber = this.ss.text$.subscribe(data => {
 			this.searchWord = data;
 		});
@@ -72,12 +72,13 @@ export class PlatformStreamsComponent implements OnInit, OnDestroy {
 		var lostGetSubs = data => {
 			console.log("LOST get subs", data);
 		};
-		await this.ytSubscriptions.getSubscriptionsFromChannelId(this.globals.musicCuratorChannelId).then(wonGetSubs).catch(lostGetSubs);
+		await this.ytSubscriptions.getSubscriptionsFromChannelId(this.globals.musicCuratorChannelId)
+		.then(wonGetSubs).catch(lostGetSubs);
 	}
 	private async getPlatformChannels() {
 		return await this.platformFB.getListOfPlatformStreams().then(data => {
 			data.subscribe(items => {
-				console.log(items);
+				console.log("platform streams", items);
 				for (var i = 0; i < items.length; i++) {
 					var channel: YoutubeChannel = items[i];
 					var videos = this.ytVideo.getActiveLiveStreamsByChannelId(channel.id).then(response => {
